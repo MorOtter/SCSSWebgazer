@@ -126,25 +126,32 @@
     });
 
     document.getElementById("proceedToLogin").addEventListener("click", (event) => {
+        // Prevent default form submission until all validation is done
+        event.preventDefault();
+
         // Check if all consent checkboxes are ticked
         var consentStatements = document.getElementsByName('consent-statement');
+        var allChecked = true;
+
+        // Validate each checkbox
         for (let item of consentStatements) {
             if (!item.checked) {
                 item.classList.add("border");
-                item.classList.add("border-2");
-                item.classList.add("border-danger");
-                event.preventDefault();
-                window.alert("Please tick all consent statements to confirm your agreement");
-                return;
+                item.classList.add("border-warning");
+                allChecked = false;
+            } else {
+                item.classList.remove("border");
+                item.classList.remove("border-warning");
             }
-            item.classList.remove("border");
-            item.classList.remove("border-2");
-            item.classList.remove("border-danger");
         }
 
-        // If validation passes, submit the form and route to the next page
-        const form = document.getElementById("consent-form");
-        form.submit();
+        // If all checkboxes are ticked, submit the form
+        if (allChecked) {
+            const form = document.getElementById("consent-form");
+            form.submit();  // Submit the form after validation
+        } else {
+            alert("Please ensure all boxes are checked to proceed.");
+        }
     });
 </script>
 
