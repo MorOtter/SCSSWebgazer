@@ -18,35 +18,26 @@
 
     </head>
 
-<body>
-    <!-- Navigation Bar -->
-    <nav class="custom-navbar">
-        <div class="navbar-logo">
-            <a>SCSS</a>
-        </div>
-
-    </nav>
-
-          <!-- modal for instructions for webgazer calibration -->
-     <div id="modal" style="display: none; z-index: 1; width:100%; height:100%;">
-        <section class="info text-center">
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="custom-navbar">
+            <div class="navbar-logo">
+                <a>SCSS</a>
+            </div>
+        </nav>
+    
+        <!-- WebGazer Instructions -->
+        <div class="info" id="webgazerInstructions">
             <h1>WebGazer Eye Tracking Calibration</h1>
             <h2>Please allow webcam access before starting the calibration.</h2>
             <p>For optimum performance of the eye tracking software, please look directly at each green square whilst clicking 5 times, not looking away until it turns red.</p>
             <button type="button" id="continue">Continue</button>
-        </section>
-    </div>
-
-</body>
-<script>
-    document.getElementById("proceedToConfigWebGazer").addEventListener("click", () => {
-        document.getElementById("description").style.display = "none";
-        document.getElementById("modal").style.display = "block";
+        </div>
+    
+    </body>
+    <script>
         document.getElementById("continue").addEventListener("click", () => {
             window.location.href = '/information/webgazerconfig';
-        })
-        
-        
-    })
-</script>
-</html>
+        });
+    </script>
+    </html>
