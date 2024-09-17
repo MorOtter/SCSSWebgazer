@@ -37,22 +37,49 @@
         <p><b>Please tick the required box next to each statement below as an electronic signature confirming your understanding and agreement.</b></p>
         
         <!-- Consent form -->
-        <section class="consent">
-            <div class="d-flex w-100 justify-content-between border border-2 border-warning">
-                <input type="checkbox" class="form-check-input" id="consent-checkbox" name="consent-checkbox">
-                <label for="consent-checkbox" class="form-check-label">
-                    I consent to participate in the study conducted by Mordecai Otter of Psychology, Cardiff University with the supervision of Prof. Phillip Morgan and Prof. Rob Honey.</label>
-            </div>
-
-            <!-- Consent checkboxes for each statement -->
-            <form action="/participant/login" method="POST" id="consent-form">
-                <div class="row align-items-center">
-                    <div class="col-12 d-flex">
-                        <input type="checkbox" class="form-check-input me-2" name="consent-statement">
-                        <p class="mb-0">I confirm that I have read the information sheet on the previous page.</p>
-                    </div>
+        <form action="/participant/login" method="POST" id="consent-form">
+            <!-- First Consent Section -->
+            <section class="consent">
+                <div class="d-flex w-100 justify-content-between align-items-center border border-2 border-warning p-2">
+                    <input type="checkbox" class="form-check-input me-2" id="consent-checkbox" name="consent-checkbox">
+                    <label for="consent-checkbox" class="form-check-label mb-0">
+                        I consent to participate in the study conducted by Mordecai Otter of Psychology, Cardiff University 
+                        with the supervision of Prof. Phillip Morgan and Prof. Rob Honey.
+                    </label>
                 </div>
-            </form>
+            </section>
+        
+            <!-- Second Consent Statement -->
+            <div class="row align-items-center mt-3">
+                <div class="col-12 d-flex">
+                    <input type="checkbox" class="form-check-input me-2" name="consent-statement">
+                    <p class="mb-0">I confirm that I have read the information sheet on the previous page.</p>
+                </div>
+            </div>
+        </form>
+        
+        <!-- Optional Bootstrap CSS -->
+        <style>
+            .form-check-input {
+                margin-top: 0;
+            }
+            .me-2 {
+                margin-right: 0.5rem; /* Adjust to change space between checkbox and text */
+            }
+            .consent label {
+                flex-grow: 1;
+            }
+            .mb-0 {
+                margin-bottom: 0;
+            }
+            .p-2 {
+                padding: 0.5rem;
+            }
+            .mt-3 {
+                margin-top: 1rem;
+            }
+        </style>
+        
                 </div><form action="/participant/login" method="POST" id="consent-form">
                     <div class="row">
                         <div class="col-10">
