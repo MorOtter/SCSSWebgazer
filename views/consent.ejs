@@ -43,10 +43,16 @@
         <section class="consent">
             <div class="d-flex w-100 justify-content-between border border-2 border-warning">
                 <input type="checkbox" class="form-check-input" id="consent-checkbox" name="consent-checkbox">
-                <label for="consent-checkbox" class="form-check-label">I, consent to participate in the study conducted by Mordecai Otter of Psychology, Cardiff University with the supervision of Prof. Phillip Morgan and Prof. Rob Honey.</label>
             </div>
             <form action="/participant/login" method="POST" id="consent-form">
-                <div class="row">
+                <div class="row"></div>
+                    <div class="col-10">
+                        <p>I consent to participate in the study conducted by Mordecai Otter of Psychology, Cardiff University with the supervision of Prof. Phillip Morgan and Prof. Rob Honey.</p>
+                    </div>
+                    <div class="col-2">
+                        <input type="checkbox" class="form-check-input" name="consent[]">
+                    </div>
+                </div><div class="row">
                     <div class="col-10">
                         <p>I confirm that I have read the information sheet on the previous page. </p>
                     </div>
