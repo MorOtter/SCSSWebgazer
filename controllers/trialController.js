@@ -1,10 +1,8 @@
-
 exports.startTrial = async (req, res, next) => {
     try {
         if (!req.session.condition) {
             return res.redirect('/');
         }
-        
         
         // Retrieve experiment info
         
@@ -134,4 +132,3 @@ of req.body['gazeData']) {
     }
 
 }
-
