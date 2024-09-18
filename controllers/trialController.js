@@ -39,37 +39,99 @@ exports.startTrial = async (req, res, next) => {
 
 
 exports.stopTrial = async (req, res, next) => {
+
     try {
+
+
 
         const trialEndTime = req.body["trialEndTime"];
 
-        const trialType = req.session.trialNumber === 0 ? 'test' : 'main';
+
+
+        const trialType = req.session.trialNumber ===
+0 ? 'test' :
+'main';
+
         
+
        
-        const trialId = await req.dbServices.insertTrial(req.session.participantId, trialType, req.session.trialNumber, req.session.trialStartTime, trialEndTime);
+
+        const trialId =
+await req.dbServices.insertTrial(req.session.participantId, trialType, req.session.trialNumber, req.session.trialStartTime, trialEndTime);
+
       
+
+
 
         req.session.trialNumber++;
 
+
+
         
-        for (let input of req.body["input"]) {
+
+        for (let input
+of req.body["input"]) {
+
          
-            input['time'] = input['time'] ? input['time'] : new Date().toISOString();
+
+            input['time'] = input['time'] ? input['time'] :
+new Date().toISOString();
+
           
+
             await req.dbServices.insertPacket(trialId, input.user, input.advisor, input.accepted, input.time);
+
        
+
         }
 
-        for (let gazeData of req.body['gazeData']) {
-            await req.dbServices.insertGazeData(trialId, gazeData.x, gazeData.y, gazeData.time);
-        }
+        res.status(200).json({ message:
+'Regular data received successfully' });
 
-        res.redirect("/information/rules");
+
+
         
+
     } catch (err) {
+
         console.error("Error caught :",err);
+
     }
+
+
 
 }
 
+
+
+exports.addGazeData = async (req, res, next) => {
+
+    try {
+
+
+
+        const trialId =
+await req.dbServices.getLastTrialId();
+
+
+
+        for (let gazeData
+of req.body['gazeData']) {
+
+            await req.dbServices.insertGazeData(trialId, gazeData.x, gazeData.y, gazeData.time);
+
+        }
+
+
+
+        res.status(200).json({message:
+"Gaze Data stored"})
+
+    } catch (err) {
+
+        console.log("Error: ", err)
+
+    }
+
+}
 

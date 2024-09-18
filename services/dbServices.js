@@ -8,6 +8,32 @@ const {Pool} = require('pg');
 
 
 //   hosted on heroku for my hosted version only
+
+const getLastTrialId = 
+async () => {
+    const client =
+await pool.connect();
+
+    try {
+
+        const query =
+"SELECT MAX(trial_id) AS max_id FROM trials;"
+
+        const result =
+await client.query(query);
+
+        const maxId = result.rows[0].max_id;
+
+        return maxId;
+
+    } finally {
+
+        client.release();
+
+    }
+
+}
+
  const pool = new Pool({
     connectionString: process.env.SUPABASE_DB_URL,
      ssl:{
@@ -123,13 +149,24 @@ const insertFeedback = async (participant, feedback) => {
 
 const dbServices = {
     insertFeedback,
+
     insertItem,
+
     insertScale,
+
     insertPacket,
+
     insertTrial,
+
     insertParticipant,
+
     getNextId,
-    insertGazeData
+
+    insertGazeData,
+
+    getLastTrialId
+
 };
+
 
 module.exports =   dbServices;
