@@ -2,7 +2,6 @@
 const {startTrial, stopTrial, addGazeData} = require('../controllers/trialController');
 
 const express = require('express');
-const {startTrial, stopTrial} = require('../controllers/trialController');
 
 const router = express.Router();
 
