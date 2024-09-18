@@ -35,6 +35,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({ limit: '1mb' }));
 app.use(flash());
 app.use(methodOverride('_method'));
 
