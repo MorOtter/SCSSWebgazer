@@ -72,8 +72,19 @@ if (group !== "A") {
 if (config.censoring) {
   document.getElementById(censoredOptions[censoredInfo][censoredArrayNumber]).classList.add("blur");
 }
-document.getElementById("condition").textContent = `Condition: ${conditionText}`;
-
+switch (conditionText) {
+  case "No Advisor":
+    document.getElementById("no Advisor").textContent = "Condition: no advisor ";
+    break;
+  case "Some Condition":
+    document.getElementById("AI Advisor").textContent = "Condition: ai advisor";
+    break;
+  case "Another Condition":
+    document.getElementById("Human Advisor").textContent = "Condition: human advisor";
+    break;
+  default:
+    document.getElementById("condition").textContent = "Unknown Condition";
+}
 if (conditionText === "No Advisor") {
   document.getElementById("accept").classList.add("hide");
   document.getElementById("advice").classList.add("hide");
