@@ -238,16 +238,7 @@ new Date().toISOString();
 await fetch('/trial/addTrial', {
 
       method: 'POST',
-
-      headers: {
-
-        'Accept':
-'application/json',
-
-        'Content-Type':
-'application/json'
-
-      },
+      headers: {'Accept': 'application/json','Content-Type':'application/json'},
 
       body: JSON.stringify({ input: data, trialEndTime })
 
@@ -257,8 +248,7 @@ await fetch('/trial/addTrial', {
 
     if (!response.ok) {
 
-      throw new Error(`HTTP error! Status:
-${response.status}`);
+      throw new Error(`HTTP error! Status:${response.status}`);
 
     }
 
