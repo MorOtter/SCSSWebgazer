@@ -72,7 +72,7 @@ if (group !== "A") {
 if (config.censoring) {
   document.getElementById(censoredOptions[censoredInfo][censoredArrayNumber]).classList.add("blur");
 }
-document.getElementById("condition").textContent = `Condition: ${conditionText}`;
+document.getElementById("condition").textContent = ${conditionText};
 
 if (conditionText === "No Advisor") {
   document.getElementById("accept").classList.add("hide");
