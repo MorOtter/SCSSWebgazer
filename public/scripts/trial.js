@@ -82,9 +82,7 @@ switch (conditionText) {
   case "Another Condition":
     document.getElementById("Human Advisor").textContent = "Condition: human advisor";
     break;
-  default:
-    document.getElementById("condition").textContent = "Unknown Condition";
-}
+  
 if (conditionText === "No Advisor") {
   document.getElementById("accept").classList.add("hide");
   document.getElementById("advice").classList.add("hide");
