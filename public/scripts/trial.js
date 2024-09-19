@@ -72,17 +72,8 @@ if (group !== "A") {
 if (config.censoring) {
   document.getElementById(censoredOptions[censoredInfo][censoredArrayNumber]).classList.add("blur");
 }
-switch (conditionText) {
-  case "No Advisor":
-    document.getElementById("no Advisor").textContent = "Condition: no advisor ";
-    break;
-  case "Some Condition":
-    document.getElementById("AI Advisor").textContent = "Condition: ai advisor";
-    break;
-  case "Another Condition":
-    document.getElementById("Human Advisor").textContent = "Condition: human advisor";
-    break;
-  
+document.getElementById("condition").textContent = `Condition: ${conditionText}`;
+
 if (conditionText === "No Advisor") {
   document.getElementById("accept").classList.add("hide");
   document.getElementById("advice").classList.add("hide");
@@ -187,57 +178,112 @@ const endTrial = () => {
 
 }
 
-let gazeData = [];
-
 // handle participant input
-const handleGazeData = async () => {
+const handleGazeData = 
+async () => {
+
   try {
-    const response = await fetch('/trial/addGazeData', {
+
+    const response =
+await fetch('/trial/addGazeData', {
+
       method: 'POST',
+
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+
+        'Accept':
+'application/json',
+
+        'Content-Type':
+'application/json'
+
       },
+
       body: JSON.stringify({ gazeData })
+
     });
 
+
+
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+
+      throw new Error(`HTTP error! Status:
+${response.status}`);
+
     } else {
+
       window.location.href = "/information/rules"
+
     }
+
   } catch (err) {
+
     console.log('Error:', err);
+
   }
+
 };
 
-const handleInput = async (data) => {
+
+
+const handleInput = 
+async (data) => {
+
   try {
-    const trialEndTime = new Date().toISOString();
-    const response = await fetch('/trial/addTrial', {
+
+    const trialEndTime =
+new Date().toISOString();
+
+    const response =
+await fetch('/trial/addTrial', {
+
       method: 'POST',
+
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+
+        'Accept':
+'application/json',
+
+        'Content-Type':
+'application/json'
+
       },
+
       body: JSON.stringify({ input: data, trialEndTime })
+
     });
 
+
+
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+
+      throw new Error(`HTTP error! Status:
+${response.status}`);
+
     }
 
-    const result = await response.json();
+
+
+    const result =
+await response.json();
+
     console.log('Regular data response:', result);
 
-    // Call handleGazeData after the first request is completed
-    await handleGazeData();
-  } catch (err) {
-    console.error('Error:', err);
-  }
-};
 
-window.addEventListener('load',() => {
+
+    // Call handleGazeData after the first request is completed
+
+    await handleGazeData();
+
+  } catch (err) {
+
+    console.error('Error:', err);
+
+  }
+
+let gazeData = [];
+
+window.addEventListener;'load',() => {
   webgazer.params.moveTickSize = 100;
   webgazer.params.dataTimestep = 100;
   webgazer.setRegression('ridge')
@@ -257,4 +303,5 @@ window.addEventListener('load',() => {
           .then(() => {
             startTrial();
           });
-})
+        }
+        }

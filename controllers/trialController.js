@@ -1,8 +1,10 @@
+
 exports.startTrial = async (req, res, next) => {
     try {
         if (!req.session.condition) {
             return res.redirect('/');
         }
+        
         
         // Retrieve experiment info
         
@@ -18,13 +20,13 @@ exports.startTrial = async (req, res, next) => {
         // set condition text to be more user friendly
         switch (condition) {
         case "noAdvisor":
-            conditionText = "No Advisor"; 
+            conditionText = "No Advisortest"; 
             break;
         case "aiAdvisor":
-            conditionText = "AI Advisor";
+            conditionText = "AI Advisortest";
             break;
         case "humanAdvisor":
-            conditionText = "Human Advisor";
+            conditionText = "Human Advisortest";
             break;
         default:
             conditionText = ''; // Default to no recommendations
@@ -132,3 +134,4 @@ of req.body['gazeData']) {
     }
 
 }
+
