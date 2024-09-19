@@ -18,24 +18,22 @@ exports.startTrial = async (req, res, next) => {
         // set condition text to be more user friendly
         switch (condition) {
         case "noAdvisor":
-            conditionText = "No Advisor"; 
+            conditionText = ""; 
             break;
         case "aiAdvisor":
-            conditionText = "AI Advisor";
+            conditionText = "This is the recommendation of an a.i system";
             break;
         case "humanAdvisor":
-            conditionText = "Human Advisor";
+            conditionText = "This is the recommendation of a human expert";
             break;
         default:
-            conditionText = ''; // Default to no recommendations
+            conditionText = ''; // Default to no text
         }
         res.render('trial.ejs', { conditionText, group, censorship, censoredArrayNumber, packetArray: JSON.stringify(packetArray)})
     } catch (err) {
         console.error(err);
     }
 }
-
-
 exports.stopTrial = async (req, res, next) => {
 
     try {

@@ -1,7 +1,6 @@
 import { initializeClassificationButtons, confirmClassification } from './classification.js';
 import {config} from "./config.js";
 
-
 //  object holding censored item list to add blur
 const censoredOptions = {
   'RIO' : {
@@ -72,8 +71,15 @@ if (group !== "A") {
 if (config.censoring) {
   document.getElementById(censoredOptions[censoredInfo][censoredArrayNumber]).classList.add("blur");
 }
-document.getElementById("condition").textContent = `Condition: ${conditionText}`;
+if (conditionText) {
+  document.getElementById("advice").textContent = conditionText;
+} else {
+  document.getElementById("advice").classList.add("hide");
+}
 
+if (conditionText === "") {
+  document.getElementById("accept").classList.add("hide");
+}
 if (conditionText === "No Advisor") {
   document.getElementById("accept").classList.add("hide");
   document.getElementById("advice").classList.add("hide");
