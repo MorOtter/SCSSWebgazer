@@ -20,13 +20,13 @@ exports.startTrial = async (req, res, next) => {
         // set condition text to be more user friendly
         switch (condition) {
         case "noAdvisor":
-            conditionText = " "; 
+            conditionText = "No Advisor"; 
             break;
         case "aiAdvisor":
-            conditionText = "This is the recommendation of the A.I expert system";
+            conditionText = "AI Advisor";
             break;
         case "humanAdvisor":
-            conditionText = "This is the recommendation from the human expert";
+            conditionText = "Human Advisor";
             break;
         default:
             conditionText = ''; // Default to no recommendations
