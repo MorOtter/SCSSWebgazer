@@ -21,7 +21,7 @@ exports.startTrial = async (req, res, next) => {
             conditionText = ""; 
             break;
         case "aiAdvisor":
-            conditionText = "This is the recommendation of an a.i system";
+            conditionText = "This is the recommendation of an A.I Expert";
             break;
         case "humanAdvisor":
             conditionText = "This is the recommendation of a human expert";
