@@ -1,69 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="/public/css/style.css">
+    <head>
+        <meta charset="utf-8">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="/public/css/style.css" rel="stylesheet">
+    
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="/public/scripts/webgazer.js"></script>
+        <!-- <script src="/public/scripts/webgazerHandler.js"></script> -->
+        <!-- Favicon -->
+        <link rel="icon" href="/public/assets/favicon.webp" type="image/x-icon">
+        <!-- Page Title -->
+        <title>Security Control Simulation System</title>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="/public/scripts/webgazer.js"></script>
+    </head>
 
-    <!-- Favicon -->
-    <link rel="icon" href="/public/assets/favicon.webp" type="image/x-icon">
-    <!-- Page Title -->
-    <title>Security Control Simulation System</title>
-</head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="custom-navbar">
+            <div class="navbar-logo">
+                <a>SCSS</a>
+            </div>
+        </nav>
+    
+        <!-- WebGazer Instructions -->
+        <div class="info" id="webgazerInstructions">
+            <h1>WebGazer Eye Tracking Calibration</h1>
+            <h2>Please allow webcam access before starting the calibration.</h2>
 
-<body>
-    <!-- Navigation Bar -->
-    <nav class="custom-navbar">
-        <div class="navbar-logo">
-            <a>SCSS</a>
+            <p>1. Intial view. </p>
+            <div class="text-center" style="margin-top: 20px;">
+                <img src="/public/assets/eyetrackinginstructions1.png"  class="img-fluid" style="max-width: 400px; height: auto;">
+
+            <p>2. Focus and begin left mouse clicking on one blue square. </p>
+            <div class="text-center" style="margin-top: 20px;">
+                <img src="/public/assets/eyetrackinginstructions2.png"  class="img-fluid" style="max-width: 400px; height: auto;">
+
+            <p>3. The square will turn red when calibrated </p>
+            <div class="text-center" style="margin-top: 20px;">
+            <img src="/public/assets/eyetrackinginstructions3.png"  class="img-fluid" style="max-width: 400px; height: auto;">
+
+            <p>Look at the screen with blue squares as shown in the first image.</p>
+            <p>Focus on one blue square at a time.</p>
+            <p>While looking at the square, click on it 5 times.</p>
+            <p>Keep your gaze on the square until it turns red.</p>
+            <p>Move to the next blue square and repeat steps 2-4.</p>
+            <p>Continue until all squares have turned red.</p>
+            <p class="important-note">For optimal eye tracking performance, maintain your focus on only the square you are clicking on throughout the process.</p>
+            <button type="button" id="continue">Continue</button>
         </div>
-    </nav>
-
-    <div class="container">
-        <h1>WebGazer Eye Tracking Calibration</h1>
-        <p class="important-note">Please allow webcam access before starting the calibration.</p>
-        
-        <div class="instructions-grid">
-            <div class="instruction-step">
-                <img src="/public/assets/eyetrackinginstructions1.png" alt="Initial eye tracker view">
-                <p>1. Initial view</p>
-            </div>
-            <div class="instruction-step">
-                <img src="/public/assets/eyetrackinginstructions2.png" alt="Focus on one square">
-                <p>2. Focus on one blue square</p>
-            </div>
-            <div class="instruction-step">
-                <img src="/public/assets/eyetrackinginstructions3.png" alt="Calibrated square">
-                <p>3. Square turns red when calibrated</p>
-            </div>
-        </div>
-        
-        <h2>Calibration Process:</h2>
-        <ol class="calibration-steps">
-            <li>Look at the screen with blue squares as shown in the first image.</li>
-            <li>Focus on one blue square at a time.</li>
-            <li>While looking at the square, click on it 5 times.</li>
-            <li>Keep your gaze on the square until it turns red.</li>
-            <li>Move to the next blue square and repeat steps 2-4.</li>
-            <li>Continue until all squares have turned red.</li>
-        </ol>
-        
-        <p class="important-note">For optimal eye tracking performance, maintain your focus on only the square you are clicking on throughout the process.</p>
-        
-        <button type="button" id="continue" class="btn btn-primary">Start Calibration</button>
-    </div>
-
+    
+    </body>
     <script>
         document.getElementById("continue").addEventListener("click", () => {
             window.location.href = '/information/webgazerconfig';
         });
     </script>
-</body>
-</html>
+    </html>
