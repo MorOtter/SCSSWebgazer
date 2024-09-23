@@ -55,6 +55,13 @@ for (let i = 0; i < packetArray.length; i++) {
 
 
 // Initialize variables and elements
+let globalConditionText = '';
+if (conditionText) {
+  globalConditionText = conditionText;
+  document.getElementById("advice").textContent = globalConditionText;
+} else {
+  document.getElementById("advice").classList.add("hide");
+}
 const gameObj = document.getElementById("game");
 const panelsElement = document.getElementsByClassName("panels")[0];
 let selectedDotInfo = null;
@@ -65,6 +72,7 @@ const timePerPacket = (config.packetTimeOnScreen * 1000) * packetArray.length <=
 
 
 // set up trial view
+
 if (group !== "A") {
   panelsElement.style.flexDirection = "row-reverse";
 }
@@ -113,9 +121,13 @@ const updateConnectionInfo = (info) => {
   document.getElementById('info-time').textContent = `Connection Time: ${info.time}`;
   document.getElementById('info-certificates').textContent = `Certificates: ${info.certificates}`;
   document.getElementById('info-portnumber').textContent = `Port Number: ${info.portNumber}`;
-  document.getElementById('info-classification').textContent = `Classification: ${info.classification}`;
-  document.getElementById('advice').textContent = `Recommendation: ${info.recommendation}`;
-};
+  if (globalConditionText) {
+    document.getElementById('advice').textContent = `${globalConditionText}\nRecommendation: ${info.recommendation}`;
+  } else {
+    document.getElementById('advice').textContent = `Recommendation: ${info.recommendation}`;
+  }
+};  document.getElementById('info-classification').textContent = `Classification: ${info.classification}`;
+;
 
 let packetsFinished = 0;
 
